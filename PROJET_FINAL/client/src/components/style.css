@@ -1,0 +1,16 @@
+#imgpr{
+    width: 70px;
+    height: 70px;
+   clip-path:ellipse(50% 50%);
+   margin-left: 30px;
+}
+
+.navbar{
+    background-image: url('http://www.commercebloom.com/wp-content/uploads/2015/05/ecomAppDev_slider2.jpg');
+}
+
+#imgnav{
+    width: 200px;
+    height: 70px;
+}
+
