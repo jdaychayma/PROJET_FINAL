@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { GET_PANIER } from '../constants/ActionType';
-import { DEL_PANIER } from '../constants/ActionType';
+
 
 export const getPanier = () => async(dispatch)=>{
     try {
@@ -33,16 +33,13 @@ export const addPanier = (newPanier) => async(dispatch)=>{
     }
 }
 
-export const deletepanier = (newPanier) => async(dispatch)=>{
-  try {
-    const config = {
-        headers: {
-          'x-auth-token': localStorage.getItem('token'),
-        },
-      };
-      const res = await axios.delete('/api/panier/',newPanier,config);
-      dispatch(deletepanier(newPanier))
-} catch (error) {
-    
-}
-}
+export const deletepanier=(idproduit)=>(dispatch)=>{
+  const config = {
+      headers: {
+      'x-auth-token': localStorage.getItem('token'),
+      },
+  };
+  axios.delete(`/api/panier/delete/${idproduit}`,config)
+  .then(res=>dispatch( getPanier() ))
+  .catch(Error=>console.log(Error))
+  }
