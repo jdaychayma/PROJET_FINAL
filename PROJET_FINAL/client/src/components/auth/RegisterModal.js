@@ -33,7 +33,7 @@ const RegisterModal = () => {
   const handleRegister = () => {
     const newUser = { name, lastName, email, password,imgUser };
     dispatch(registerUser(newUser));
-    history.push('/portfolio');
+    history.push('/');
     setEmail('');
     setName('');
     setLastName('');
