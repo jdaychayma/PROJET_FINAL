@@ -5,7 +5,6 @@ const connectDB = require("./config/connect")
 
 //Require the router
 const authRouter = require('./routers/auth');
-const portfolio = require('./routers/portfolio');
 const product = require('./routers/product');
 const category = require('./routers/category');
 const panier = require('./routers/panier');
@@ -20,7 +19,6 @@ app.get('/', (req, res) => res.send('API Running'));
 
 //Use routes
 app.use('/api/auth', authRouter);
-app.use('/api/portfolio', portfolio);
 app.use('/api/product', product);
 app.use('/api/category', category);
 app.use('/api/panier', panier);
