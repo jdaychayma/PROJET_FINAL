@@ -7,15 +7,15 @@ const Panier = () => {
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(getPanier());
-        
+       
     }, [])
     
     const panier = useSelector(state => state.panierReducer.panier)
-    const delette = (panier)=>{  
-        alert ('your product is deleted');
-        dispatch(deletepanier(panier))
-        
 
+    const delette = (idpanier)=>{  
+      
+        dispatch(deletepanier(idpanier)) ;
+        alert ('your product is deleted')
     }
     return (
         <div>
@@ -29,15 +29,16 @@ const Panier = () => {
                 <th>{product && product.product.price}</th>
                 <th>Qty: {product && product.quantity}</th>
                 <th>Total : {product.quantity*product.product.price}</th>
-                <th className='btn btn-danger'onClick={()=>delette(panier)}>delete</th>
                     </tr>
                 </Table>
+                <div >
+            </div>
             </div>
             )
             }
-            <div className='container center'>
+            <div className='container m-4'style={{display:"flex",flexDirection:"row",justifyContent:'space-between', alignItems:'center'}}>
             <span className='btn btn-success' onClick={()=>alert('Your Order is Succesful')}>Pay</span>
-            
+            <th className='btn btn-danger'onClick={()=>delette(panier._id)}>clear the basket</th>
             </div>
             
         </div>
@@ -47,16 +48,4 @@ const Panier = () => {
 
 export default Panier
 
-/* <Table striped bordered hover variant="dark">
-<thead>
-  <tr>
-    <th>ID</th>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Email</th>
-  </tr>
-</thead>
-<tbody>
- {users && users.map(users=> <UserList key={users._id} users={users}/>)}
-</tbody>
-</Table> */
+
